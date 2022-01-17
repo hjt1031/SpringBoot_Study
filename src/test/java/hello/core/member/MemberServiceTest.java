@@ -18,5 +18,6 @@ public class MemberServiceTest {
 
         //than
         Assertions.assertThat(member).isEqualTo(findMember);
+
     }
 }
