@@ -9,7 +9,7 @@ import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceimpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository = new MemoryMemberRepository(); //회원 select
 
     //고정 할인 정책
 //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
@@ -19,7 +19,7 @@ public class OrderServiceimpl implements OrderService{
     private DiscountPolicy discountPolicy;
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
-        Member member = memberRepository.findById(memberId);
+        Member member = memberRepository.findById(memberId); //회원 select
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
         return new Order(memberId, itemName, itemPrice, discountPrice);

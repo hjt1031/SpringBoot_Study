@@ -1,8 +1,8 @@
 package hello.core.order;
 
 public class Order {
-    private Long memberId;
-    private String itemName;
+    private Long memberId; //ID
+    private String itemName; //item 이름
     private int itemPrice; // 원가
     private int discountPrice; // 할인
 
