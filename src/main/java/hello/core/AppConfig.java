@@ -9,7 +9,10 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceimpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+/*   순수 java code
 public class AppConfig {
     //  구현객체 생성 하고 연결하는 책임 클래스 (애플리케이션 전반 책임) ==> 관심사 분리
     public MemberService memberService(){
@@ -30,4 +33,31 @@ public class AppConfig {
         return new RateDiscountPolicy();
     }
 }
+ */
 
+
+
+// 스프링 Configuration=> 설정정보(=구성정보)
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MemberService memberService(){
+        return new MemberServiceImpl(memberRepository());
+    }
+
+    @Bean
+    public MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
+    @Bean
+    public OrderService orderService(){
+        return new OrderServiceimpl(new MemoryMemberRepository(), discountPolicy());
+    }
+
+    @Bean
+    public DiscountPolicy discountPolicy() {
+        return new RateDiscountPolicy();
+    }
+}
