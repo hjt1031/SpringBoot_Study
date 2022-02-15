@@ -2,6 +2,7 @@ package hello.core;
 
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
@@ -23,9 +24,10 @@ public class AppConfig {
     public OrderService orderService(){
         return new OrderServiceimpl(new MemoryMemberRepository(), discountPolicy());
     }
-
+    //구성 영역만 변경하면 기존 코드를 변경 할 필요 없다.
     public DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+        //return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }
 
