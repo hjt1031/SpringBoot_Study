@@ -36,24 +36,26 @@ public class AppConfig {
  */
 
 
-
 // 스프링 Configuration=> 설정정보(=구성정보)
 @Configuration
 public class AppConfig {
 
     @Bean
     public MemberService memberService(){
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.MemberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService(){
-        return new OrderServiceimpl(new MemoryMemberRepository(), discountPolicy());
+        System.out.println("call AppConfig.orderService");
+        return new OrderServiceimpl(memberRepository(), discountPolicy());
     }
 
     @Bean
