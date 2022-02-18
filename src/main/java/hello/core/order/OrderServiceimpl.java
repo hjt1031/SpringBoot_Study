@@ -26,6 +26,7 @@ public class OrderServiceimpl implements OrderService{
     
     //생성자 주입을 통해 객체 할당(DIP 를 위반안함.)
     @Autowired
+    //생성자가 1개이면 @Autowired 생략 가능.
     public OrderServiceimpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
@@ -42,4 +43,5 @@ public class OrderServiceimpl implements OrderService{
     public MemberRepository getMemberRepository() {
         return memberRepository;
     }
+
 }
