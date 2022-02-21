@@ -20,8 +20,8 @@ public class AutoAppConfig {
         => 자동 으로 동일 name 으로 등록 시 오류 발생
         => 자동 and 수동 으로 동일 name 으로 등록 시 수동 빈 이 우선권을 갖게 되고 수동빈이 자동빈을 오버라이딩 해버린다.
      */
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 }
