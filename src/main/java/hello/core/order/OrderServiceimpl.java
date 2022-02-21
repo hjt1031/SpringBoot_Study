@@ -6,10 +6,13 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
+// @RequiredArgsConstructor 생성자를 만들어줌
 public class OrderServiceimpl implements OrderService{
 
     //고정 할인 정책
@@ -25,12 +28,12 @@ public class OrderServiceimpl implements OrderService{
 
     
     //생성자 주입을 통해 객체 할당(DIP 를 위반안함.)
-    @Autowired
+    // @Autowired
     //생성자가 1개이면 @Autowired 생략 가능.
-    public OrderServiceimpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    public OrderServiceimpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
