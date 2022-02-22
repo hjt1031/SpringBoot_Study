@@ -25,6 +25,7 @@ public class ApplicationContextInfoTest {
     void findApplicationBean() {
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
+            // getBeanDefinition : bean 의 대한 정보
             BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
             // ROLE_INFRASTRUCTURE : 스프링이 내부에서 사용하는 빈
             // ROLE_APPLICATION : 직접 등록한 애플리케이션 빈

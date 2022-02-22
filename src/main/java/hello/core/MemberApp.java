@@ -26,7 +26,7 @@ public class MemberApp  {
 
         // Spring
 
-        //스프링 컨테이너(Appconfig  에 있는 정보를 스프링컨테이너에다가 주입)
+        //스프링 컨테이너(Appconfig  에 있는 정보를 스프링컨테이너에다(applicationContext => Interface) 주입)
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         // memberservice(메서드이름) 객체 select
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
