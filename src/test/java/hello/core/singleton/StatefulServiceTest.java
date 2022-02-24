@@ -22,7 +22,7 @@ class StatefulServiceTest {
         //ThreadB : B사용자 20000원 주문
         statefulService2.order("userB",20000);
 
-        //ThreadA : 사용자A 주문 금액 조회
+        //ThreadA : 사용자A 주문 금액 조회 => 내가 원하는건 10000원 이지만 결과는 20000원 이 출력됨.
         int price = statefulService1.getPrice();
         System.out.println("price = " + price);
 

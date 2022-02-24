@@ -25,3 +25,10 @@ public class BeanDefinitionTest {
     }
 
 }
+
+
+/*
+    BeanDefinition :
+        - 스프링이 다양한 형태의 설정정보를 BeanDefinition으로 추상화 해서 사용한다.
+        - BeanDefinition 를 직접 생성해서 스프링 컨테이너에 등록할 수 도 있다.
+ */

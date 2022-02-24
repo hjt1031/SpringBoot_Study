@@ -12,7 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import static org.assertj.core.api.Assertions.*;
 
 public class ConfigurationSingletonTest {
-
+    // AppConfig 에서
     @Test
     void configurationTest(){
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);

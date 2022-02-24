@@ -37,8 +37,8 @@ public class SingletonTest {
         System.out.println("singletonService1 = " + singletonService1);
         System.out.println("singletonService2 = " + singletonService2);
 
-        // same == (인스턴스가 같은지 비교해보는 것)
-        // equal
+        // same  : == (인스턴스가 같은지 비교해보는 것)
+        // equal :  메서드 equal 비교하는 것
         assertThat(singletonService1).isSameAs(singletonService2);
 
     }

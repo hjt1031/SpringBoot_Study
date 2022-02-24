@@ -48,7 +48,7 @@ public class AppConfig {
  */
 
 
-// 스프링 Configuration => 설정정보(=구성정보)
+// 스프링 Configuration => 설정정보(=구성정보) 싱글톤 보장
 @Configuration
 public class AppConfig {
 
