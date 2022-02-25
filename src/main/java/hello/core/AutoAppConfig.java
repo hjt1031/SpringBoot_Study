@@ -11,7 +11,8 @@ import org.springframework.context.annotation.FilterType;
 //컨포넌트 스캔을 사용하면 @Configuration 이 붙은 설정 정보도 자동으로 등록 되기때문에 기존 AppConfig 를 빼주기위해 Filter 사용
 @ComponentScan(
         // 하위 패키지 검색
-        basePackages = "hello.core.member",
+        // basePackages 를 붙이지 않으면, @ComponentScan 이 붙은 설정 정보 클래스의 패키지가 시작 위치가 된다.
+        // basePackages = "hello.core.member",
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 public class AutoAppConfig {
@@ -20,8 +21,10 @@ public class AutoAppConfig {
         => 자동 으로 동일 name 으로 등록 시 오류 발생
         => 자동 and 수동 으로 동일 name 으로 등록 시 수동 빈 이 우선권을 갖게 되고 수동빈이 자동빈을 오버라이딩 해버린다.
      */
-//    @Bean(name = "memoryMemberRepository")
-//    MemberRepository memberRepository() {
-//        return new MemoryMemberRepository();
-//    }
+/*
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+*/
 }

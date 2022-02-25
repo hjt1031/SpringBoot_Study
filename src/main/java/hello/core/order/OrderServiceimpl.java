@@ -23,17 +23,45 @@ public class OrderServiceimpl implements OrderService{
 
 
     //관심사의 분리를 해줘야함.
-    private final MemberRepository memberRepository; //회원 select
-    private final DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository; //회원 select
+    private DiscountPolicy discountPolicy;
 
-    
-    //생성자 주입을 통해 객체 할당(DIP 를 위반안함.)
-    // @Autowired
-    //생성자가 1개이면 @Autowired 생략 가능.
-//    public OrderServiceimpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    /* 3. 필드 주입 (권장하지 않음 : 외부에서 테스트가 불가능해서 )
+    @Autowired private MemberRepository memberRepository; //회원 select
+    @Autowired private DiscountPolicy discountPolicy;
+     */
+
+    /* 4. 일반 메서드 주입 (사용 별로 안함)
+    @Autowired
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy){
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+     */
+
+
+    // 1.생성자 주입방법.
+     @Autowired
+     // 생성자가 1개이면 @Autowired 생략 가능.
+    public OrderServiceimpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+    /* 2. 수정자 주입
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        System.out.println("discountPolicy = " + discountPolicy);
+        this.discountPolicy = discountPolicy;
+    }
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository) {
+        System.out.println("memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+    }
+     */
+
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

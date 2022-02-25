@@ -29,11 +29,11 @@ public class ComponentFilterAppConfigTest {
 
     @Configuration
     @ComponentScan(
+            // type = FilterType.ANNOTATION 디폴트라 제외가능
             includeFilters = @Filter(type = FilterType.ANNOTATION, classes = MyIncludeComponent.class),
             excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = MyExcludeComponent.class)
     )
     static class ComponentFilterAppConfig{
-
 
     }
 }
