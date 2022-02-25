@@ -8,10 +8,10 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 // @RequiredArgsConstructor 생성자를 만들어줌
 public class OrderServiceimpl implements OrderService{
 
@@ -27,7 +27,8 @@ public class OrderServiceimpl implements OrderService{
     private final DiscountPolicy discountPolicy;
 
     /* 3. 필드 주입 (권장하지 않음 : 외부에서 테스트가 불가능해서 )
-    @Autowired private MemberRepository memberRepository; //회원 select
+    @Autowired private MemberRepository memberRepository; //회원 select.
+
     @Autowired private DiscountPolicy discountPolicy;
      */
 
@@ -41,12 +42,12 @@ public class OrderServiceimpl implements OrderService{
 
 
     // 1.생성자 주입방법.
-     @Autowired
-     // 생성자가 1개이면 @Autowired 생략 가능.
+    @Autowired
     public OrderServiceimpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
 
     /* 2. 수정자 주입
     @Autowired
