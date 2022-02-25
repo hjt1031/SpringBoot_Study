@@ -23,8 +23,8 @@ public class OrderServiceimpl implements OrderService{
 
 
     //관심사의 분리를 해줘야함.
-    private MemberRepository memberRepository; //회원 select
-    private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository; //회원 select
+    private final DiscountPolicy discountPolicy;
 
     /* 3. 필드 주입 (권장하지 않음 : 외부에서 테스트가 불가능해서 )
     @Autowired private MemberRepository memberRepository; //회원 select
