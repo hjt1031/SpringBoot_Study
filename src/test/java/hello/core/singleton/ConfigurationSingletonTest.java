@@ -42,6 +42,4 @@ public class ConfigurationSingletonTest {
 }
 
 
-// http 업로드
-
-
+// http 업로드2
